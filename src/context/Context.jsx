@@ -11,7 +11,8 @@ export const Context = ({ children }) => {
   const [userAuthProvider, setUserAuthProvider] = useState(null);
   const [postesData, setPostesData] = useState([]);
   const [userData, setUserData] = useState([]);
-  const [isLoading,setIsLoading] = useState(true)
+  const [isLoading,setIsLoading] = useState(true);
+  const [isLoad,setIsLoad] = useState(false);
 
   useEffect(() => {
     const userAuthLisner = onAuthStateChanged(auth, (user) => {
@@ -37,12 +38,18 @@ export const Context = ({ children }) => {
       setUserData(data);
     });
 
+
+    console.log("del");
+
     return () => {
       userAuthLisner();
       unsubscribe();
       usersWatcher();
     };
   }, []);
+
+
+
 
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, "Products"), (snapshot) => {
@@ -60,6 +67,7 @@ export const Context = ({ children }) => {
         data.push(doc.data());
       });
       setUserData(data);
+      setIsLoad(true)
     });
 
     return () => {
@@ -79,7 +87,8 @@ export const Context = ({ children }) => {
         postesData,
         setPostesData,
         userData,
-        isLoading
+        isLoading,
+        isLoad
       }}
     >
       {children}

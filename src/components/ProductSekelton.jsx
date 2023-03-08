@@ -5,18 +5,16 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 import React from "react";
-import { getState } from "../context/Context";
 import { Bbg, bg } from "../global/GlobalData";
 
-export const ProductSekelton = ({ count }) => {
+export const ProductSekelton = ({ count ,isLoading}) => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const { isLoading } = getState();
 
   if (isLoading) {
     return Array(count)
       .fill(0)
       .map((e, i) => (
-        <Box padding="7" key={i}>
+        <Box padding="7" key={i}  width={{base:"330px",md:"700px"}}>
           <SkeletonCircle size="10" />
           <SkeletonText
             startColor={!colorMode == "dark" && Bbg}

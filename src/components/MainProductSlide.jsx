@@ -20,7 +20,7 @@ export const MainProductSlide = () => {
   return (
     <Fragment>
        <View>
-         {isLoading && <ProductSekelton count={5} />}
+         {isLoading && <ProductSekelton isLoading={isLoading} count={5} />}
           {postesData?.map((e) => {
             return <ProductBox data={e} key={e.colId}/> 
           })}

@@ -30,7 +30,7 @@ export const ProductBox = ({ data, commentState }) => {
         height={{ base: "500px", md: "100%" }}
         borderRadius={{ sm: "0", md: "5px" }}
         overflow={"hidden"}
-        // width={{base:"100%",md:"600px"}}
+        width={{base:"340px",md:"600px"}}
         bg={bg}
         color="#fff"
       >
@@ -60,6 +60,7 @@ export const ProductBox = ({ data, commentState }) => {
           justifyContent={"center"}
           alignItems="center"
           height="500px"
+          width={{base:"100%",md:"600px"}}
           display="flex"
           bg={colorMode == "light" ? "#3f4858" : "#28292b"}
         >

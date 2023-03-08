@@ -4,6 +4,8 @@ import {
   Button,
   Flex,
   FormLabel,
+  Skeleton,
+  SkeletonCircle,
   Spinner,
   Stack,
   useColorMode,
@@ -12,6 +14,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { TbCameraPlus } from "react-icons/tb";
 import { View } from "../components/MainProductSlide";
 import { ProductBox } from "../components/ProductBox";
+import { ProductSekelton } from "../components/ProductSekelton";
 import { UpdataPhoto } from "../components/UpdataPhoto";
 import { getState } from "../context/Context";
 import { useFirebase } from "../firebase/useFirebase";
@@ -25,10 +28,11 @@ export const UserProfilePage = () => {
   const [saveBtnStatus,setBtnStatus] = useState(false);
   const [saveBtnStatusLoad,setBtnStatusLoad] = useState(false);
   const {UpdateUserBg} = useFirebase();
-  const {userData,user,postesData} = getState();
+  const {userData,user,postesData,isLoad} = getState();
   const [userDefBg,setUserDefBg] = useState(); 
   const [userPosts,setUserPosts] = useState([]);
   const fileInput  = useRef()
+
 
 
   useEffect(() => {
@@ -71,6 +75,7 @@ export const UserProfilePage = () => {
 
   return (
     <Flex flexDir={"column"} overflowX="hidden">
+     <Skeleton isLoaded={isLoad}>
       <Box
         height="609px"
         backgroundImage={`url(${preview ? preview : userDefBg })`}
@@ -161,7 +166,13 @@ export const UserProfilePage = () => {
           <UpdataPhoto sz="xl" />
         </Stack>
       </Box>
+     </Skeleton>
       <Stack marginTop={"200px"}>
+        {!isLoad && 
+        <View>
+          <ProductSekelton  isLoading={!isLoad} count={2}/>
+        </View>
+        }
         <View>
           {userPosts && userPosts.map((e) => <ProductBox key={e.colId} data={e}/>)}
         </View>

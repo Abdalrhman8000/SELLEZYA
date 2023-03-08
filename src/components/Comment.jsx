@@ -1,5 +1,6 @@
 import {
   Avatar,
+  Box,
   Button,
   Flex,
   Input,
@@ -67,7 +68,7 @@ export const Comment = ({ data, hiddeProduct, children }) => {
         <ModalOverlay />
         <ModalContent
           bg={colorMode == "light" ? "#2a2f33" : "#1d2430"}
-          maxWidth={{ sm: "100%", md: "80%", lg: "40%" }}
+          maxWidth={{ base: "100%", md: "80%", lg: "40%" }}
           borderRadius={{ sm: "0", md: "5px" }}
           overflow={"auto"}
           margin={"auto"}
@@ -91,9 +92,11 @@ export const Comment = ({ data, hiddeProduct, children }) => {
           <ModalCloseButton color={"#fff"} />
           <hr />
           <ModalBody pb={6}>
-            {!hiddeProduct && (
-              <ProductBox commentState={"active"} data={data} />
-            )}
+            <Flex justifyContent={"center"}>
+              {!hiddeProduct && (
+                <ProductBox commentState={"active"} data={data} />
+              )}
+            </Flex>
             <hr />
             <br />
             {comments &&

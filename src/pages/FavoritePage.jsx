@@ -1,4 +1,4 @@
-import { Box, Button, Flex, useColorMode } from "@chakra-ui/react";
+import { Box, Button, Flex, Skeleton, useColorMode } from "@chakra-ui/react";
 import React, { Fragment, useEffect, useState } from "react";
 import { AiFillEye } from "react-icons/ai";
 import { MdDelete } from "react-icons/md";
@@ -9,8 +9,8 @@ import { getState } from "../context/Context";
 import { useFirebase } from "../firebase/useFirebase";
 
 export const FavoritePage = () => {
-  const { userData } = getState();
-  const [userFavData, setUserFavData] = useState([]);
+  const { userData ,isLoad} = getState();
+  const [userFavData, setUserFavData] = useState(null);
   const { user } = getState();
   const { colorMode, toggleColorMode } = useColorMode();
   const {UpdateDoc} = useFirebase();
@@ -40,24 +40,30 @@ export const FavoritePage = () => {
         userFavData.map(({ favoriteProduct }) =>
           favoriteProduct.map(({ images, colId }) => (
             <Flex direction={"column"} gap="20px" key={colId}>
-              <Box
-                borderRadius={"5px"}
-                overflow="hidden"
-                height={"200px"}
-                width="300px"
-                bg={colorMode == "light" ? "#28292b" : "#f5f5f5"}
-              >
-                <BoxSlider images={images} colId={colId} />
-              </Box>
+              <Skeleton isLoaded={isLoad}>
+                  <Box
+                    borderRadius={"5px"}
+                    overflow="hidden"
+                    height={"200px"}
+                    width="300px"
+                    bg={colorMode == "light" ? "#28292b" : "#f5f5f5"}
+                  >
+                    <BoxSlider images={images} colId={colId} />
+                  </Box>
+                </Skeleton>
               <Flex gap={"10px"}>
-                <Button padding={2} fontSize="1.5rem" onClick={() => {DeleteFav(images,colId)}}>
-                  <MdDelete color="#fc5234" />
-                </Button>
-                <Link to={`/productDetails/${colId}`}>
-                  <Button padding={2} fontSize="1.5rem">
-                    <AiFillEye/>
+                <Skeleton isLoaded={isLoad}>
+                  <Button padding={2} fontSize="1.5rem" onClick={() => {DeleteFav(images,colId)}}>
+                    <MdDelete color="#fc5234" />
                   </Button>
-                </Link>
+                </Skeleton>
+                <Skeleton isLoaded={isLoad}>
+                  <Link to={`/productDetails/${colId}`}>
+                    <Button padding={2} fontSize="1.5rem">
+                      <AiFillEye/>
+                    </Button>
+                  </Link>
+                </Skeleton>
               </Flex>
             </Flex>
           ))

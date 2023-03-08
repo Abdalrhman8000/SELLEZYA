@@ -24,6 +24,7 @@ export const UserOprtions = ({ data, hide }) => {
   }
 
   function favWatcher() {
+    setFavStatus(false)
     if (userData) {
       userData.map(({ favoriteProduct, userId }) =>
         favoriteProduct.map(({ images, colId }) => {
