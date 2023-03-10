@@ -12,6 +12,10 @@ export const View = styled.div`
   border-radius: 10px;
   overflow: hidden;
   margin: 20px auto;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 export const MainProductSlide = () => {
