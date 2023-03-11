@@ -16,7 +16,7 @@ export const SliderBox = ({data,loader}) => {
             </Skeleton>
           </Stack>   
         <Flex direction={"column"} gap="20px" borderRadius={"3px"} overflow="hidden">
-            {data?.photosURLs.map((e) => <Skeleton isLoaded={loader}><Button width={"100%"} height="100%" padding={"5px"} onClick={() => setMainImg(e)}><Img cursor={"pointer"} src={e} width="100px"/></Button></Skeleton>)}
+            {data?.photosURLs.map((e) => <Skeleton key={e + Math.random() * 1976} isLoaded={loader}><Button width={"100%"} height="100%" padding={"5px"} onClick={() => setMainImg(e)}><Img cursor={"pointer"} src={e} width="100px"/></Button></Skeleton>)}
         </Flex>
         <Skeleton isLoaded={loader}>
           <Box borderRadius="5px"  width={"100%"} height={"300px"} overflow={"hidden"}><Img src={mainImg}  height="100%" width="100%" objectFit={"contain"}/></Box> 

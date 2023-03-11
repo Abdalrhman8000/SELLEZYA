@@ -97,7 +97,7 @@ export default function ProductDetails() {
           </Heading>
           <Flex gap={"50px"} flexWrap="wrap">
             {moreProduct.map((e) => (
-              <Skeleton isLoaded={skLoader}>
+              <Skeleton isLoaded={skLoader} key={e.photosURLs}>
                 <Link to={`/productDetails/${e.colId}`}>
                   <Box
                     position={"relative"}

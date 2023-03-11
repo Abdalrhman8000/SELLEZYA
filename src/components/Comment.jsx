@@ -50,8 +50,14 @@ export const Comment = ({ data, hiddeProduct, children }) => {
   }
 
   useEffect(() => {
+    setComments([])
     setComments(postesData.filter((e) => e.colId == data.colId)[0]?.comment);
-  }, [postesData]);
+  }, [postesData,data]);
+
+  console.log(comments);
+
+
+
 
   return (
     <>

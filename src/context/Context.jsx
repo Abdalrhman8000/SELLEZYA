@@ -39,7 +39,6 @@ export const Context = ({ children }) => {
     });
 
 
-    console.log("del");
 
     return () => {
       userAuthLisner();

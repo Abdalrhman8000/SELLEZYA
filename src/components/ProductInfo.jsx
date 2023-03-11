@@ -76,7 +76,7 @@ export const ProductInfo = ({ data ,loader}) => {
                 justifyContent={"flex-start"}
               >
                 {data?.comment.map((e) => (
-                  <Avatar key={e.userImage} name={e.name} src={e.userImage} />
+                  <Avatar key={e.userImage + e.name + Math.random() * 1923} name={e.name} src={e.userImage} />
                 ))}
               </AvatarGroup>
             </SkeletonCircle>
