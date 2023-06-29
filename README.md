@@ -1,9 +1,4 @@
 
-
-<p align="center"><a href="https://firebase.google.com" target="_blank"><img src="https://firebase.google.com/static/downloads/brand-guidelines/PNG/logo-built_white.png" width="600"></a></p><p align="center">
-
-<p align="center"><a href="https://firebase.google.com" target="_blank"><img src="https://raw.githubusercontent.com/chakra-ui/chakra-ui/main/media/logo-colored@2x.png?raw=true" width="600"></a></p><p align="center">
-  
 ## Tools & Technology
 
 ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
