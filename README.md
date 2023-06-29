@@ -25,7 +25,7 @@
 
 
 
-## [SELLZIA](https://sellezya.web.app/) Diagrams
+## [SELLZIA](https://sellezya-wb.web.app/) Diagrams
 
 In this part you will see a simple diagram of the components of the project 
 
@@ -41,7 +41,7 @@ Home--> MovieRoute: On Click Get One Movie With ID
 MovieRoute->MovieComponent: Show The Movie
 ```
 
-### [SELLEZIA](https://sellezya.web.app/) Flow Chart:
+### [SELLEZIA](https://sellezya-wb.web.app/) Flow Chart:
 
 ```mermaid
 graph LR
